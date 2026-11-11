@@ -65,6 +65,8 @@ Management API endpoints are `/api/status`, `/api/profiles`, `/api/suites`, `/ap
 
 [VALIDATION.md](VALIDATION.md) describes the real model upgrade/rollback flow, process-failure injection, crash recovery at eight journal boundaries, browser checks and remaining limits.
 
+The [30-second launch video brief](docs/LAUNCH_VIDEO_PRD.md) includes the storyboard, motion requirements and claim limits. Its [chart dataset](docs/launch-video-data.json) is extracted from the committed real-run receipts.
+
 ```bash
 uv sync --locked --extra dev
 .venv/bin/pytest -q

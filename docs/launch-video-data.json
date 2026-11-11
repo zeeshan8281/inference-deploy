@@ -1,0 +1,146 @@
+{
+  "source": "evidence/live-flow-03/results.json",
+  "source_event": "stable_qualified",
+  "scope": "Single qualification run; complete nonstream request/response latency from the evaluator to the backend, including response validation read; not client TTFT or a controlled speed comparison. Fresh-prefix resets the server slot, not OS caches.",
+  "environment": {
+    "hardware": "Apple M4",
+    "model": "Qwen2.5-0.5B-Instruct Q4_K_M",
+    "runtime": "llama-server 0.7.0 build11669 commit620d2225c",
+    "context": 2048
+  },
+  "measurements": [
+    {
+      "case": "ready",
+      "stage": "fresh-prefix",
+      "latency_ms": 72.34370900550857,
+      "prompt_tokens": 37,
+      "completion_tokens": 2,
+      "cached_prompt_tokens": 0,
+      "passed": true
+    },
+    {
+      "case": "ready",
+      "stage": "warm-prime",
+      "latency_ms": 22.04645800520666,
+      "prompt_tokens": 37,
+      "completion_tokens": 2,
+      "cached_prompt_tokens": 36,
+      "passed": true
+    },
+    {
+      "case": "ready",
+      "stage": "warm-prefix",
+      "latency_ms": 21.17254199401941,
+      "prompt_tokens": 37,
+      "completion_tokens": 2,
+      "cached_prompt_tokens": 36,
+      "passed": true
+    },
+    {
+      "case": "json",
+      "stage": "fresh-prefix",
+      "latency_ms": 87.60320801229682,
+      "prompt_tokens": 40,
+      "completion_tokens": 6,
+      "cached_prompt_tokens": 0,
+      "passed": true
+    },
+    {
+      "case": "json",
+      "stage": "warm-prime",
+      "latency_ms": 55.17470800259616,
+      "prompt_tokens": 40,
+      "completion_tokens": 6,
+      "cached_prompt_tokens": 39,
+      "passed": true
+    },
+    {
+      "case": "json",
+      "stage": "warm-prefix",
+      "latency_ms": 53.181625000433996,
+      "prompt_tokens": 40,
+      "completion_tokens": 6,
+      "cached_prompt_tokens": 39,
+      "passed": true
+    },
+    {
+      "case": "context",
+      "stage": "fresh-prefix",
+      "latency_ms": 189.04983399261255,
+      "prompt_tokens": 444,
+      "completion_tokens": 2,
+      "cached_prompt_tokens": 0,
+      "passed": true
+    },
+    {
+      "case": "context",
+      "stage": "warm-prime",
+      "latency_ms": 18.497124998248182,
+      "prompt_tokens": 444,
+      "completion_tokens": 2,
+      "cached_prompt_tokens": 443,
+      "passed": true
+    },
+    {
+      "case": "context",
+      "stage": "warm-prefix",
+      "latency_ms": 18.238459000713192,
+      "prompt_tokens": 444,
+      "completion_tokens": 2,
+      "cached_prompt_tokens": 443,
+      "passed": true
+    }
+  ],
+  "crash_recovery": {
+    "source": "evidence/crash-recovery-01/results.json",
+    "passed": 8,
+    "total": 8,
+    "phases": [
+      {
+        "phase": "preflight",
+        "passed": true,
+        "response": "READY"
+      },
+      {
+        "phase": "draining",
+        "passed": true,
+        "response": "READY"
+      },
+      {
+        "phase": "stopping_active",
+        "passed": true,
+        "response": "READY"
+      },
+      {
+        "phase": "starting_candidate",
+        "passed": true,
+        "response": "READY"
+      },
+      {
+        "phase": "after_spawn",
+        "passed": true,
+        "response": "READY"
+      },
+      {
+        "phase": "postcheck",
+        "passed": true,
+        "response": "READY"
+      },
+      {
+        "phase": "committing",
+        "passed": true,
+        "response": "READY"
+      },
+      {
+        "phase": "after_commit",
+        "passed": true,
+        "response": "READY"
+      }
+    ]
+  },
+  "focused_tests": {
+    "passed": 16,
+    "scope": "Separate focused tests; not 16 real-model crash tests."
+  },
+  "repo": "https://github.com/zeeshan8281/inference-deploy"
+}
