@@ -1,0 +1,4 @@
+include README.md VALIDATION.md LICENSE uv.lock
+recursive-include examples *.json
+recursive-include tests *.py
+recursive-include src/inference_deploy/static *

@@ -1,0 +1,90 @@
+{
+  "date": "2026-11-11",
+  "project": "inference-deploy",
+  "hardware": "Apple M4",
+  "os": "macOS-26.6.2-arm64-arm-64bit",
+  "runtime": "llama-server 0.7.0 build11669 commit620d2225c",
+  "model": {
+    "model": "Qwen/Qwen2.5-0.5B-Instruct-GGUF",
+    "revision": "9217f5db79a29953eb74d5343926648285ec7e67",
+    "file": "qwen2.5-0.5b-instruct-q4_k_m.gguf",
+    "bytes": 491400032,
+    "sha256": "74a4da8c9fdbcd15bd1f6d01d621410d31c6fc00986f5eb687824e7b93d7a9db",
+    "verified": true
+  },
+  "focused_tests": {
+    "passed": 16,
+    "failed": 0
+  },
+  "real_flow": {
+    "complete": true,
+    "checks": [
+      "fresh_manager",
+      "registered_profiles_and_suite",
+      "stable_qualified",
+      "bootstrap_serves_real_inference",
+      "context_regression_rejected_and_stable_restored",
+      "candidate_qualified_stable_restored",
+      "apply_drains_old_stream_and_rejects_new_requests",
+      "upgrade_routes_new_requests_to_candidate",
+      "manual_rollback_restores_real_service",
+      "injected_real_candidate_startup_failure",
+      "failed_upgrade_automatically_rolls_back",
+      "pre_restart_state",
+      "manager_crash_recovers_committed_profile",
+      "retained_history"
+    ],
+    "receipt": "live-flow-03/results.json"
+  },
+  "crash_boundaries": {
+    "passed": 8,
+    "phases": [
+      "preflight",
+      "draining",
+      "stopping_active",
+      "starting_candidate",
+      "after_spawn",
+      "postcheck",
+      "committing",
+      "after_commit"
+    ],
+    "receipt": "crash-recovery-01/results.json"
+  },
+  "real_gateway_cancellation": {
+    "passed": true,
+    "receipt": "proxy-cancellation.json"
+  },
+  "actual_browser": {
+    "created_profile_and_suite": true,
+    "qualified": true,
+    "applied_stable_and_candidate": true,
+    "rolled_back": true,
+    "active_after_rollback": "Dashboard stable"
+  },
+  "final_endpoint": {
+    "url": "http://127.0.0.1:8088/v1",
+    "status": "ready",
+    "profile": "Dashboard stable",
+    "response": "READY"
+  },
+  "source_files_sha256": {
+    "pyproject.toml": "336760456964ee5a6bb4b0d9e397a040f372dd139299a19f2b3e1d5a87f6fa54",
+    "src/inference_deploy/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "src/inference_deploy/checks.py": "a547a1bac5719f275fad3469b2f805e601684b41671a7dd04a46e6e46b1db0a3",
+    "src/inference_deploy/cli.py": "567e3b38a976afd98ffb2374463bf4578f5bfbbd4ac14b6af37974ba6a30f542",
+    "src/inference_deploy/manager.py": "a73ab8660ade8c2151236403f824a175cb652d601d5bebfd184d9a2831e248f5",
+    "src/inference_deploy/runtime.py": "74493c54bc6370ecd327b23d2108d5b6cec3e072d702518c70c2e1ad41153bc1",
+    "src/inference_deploy/server.py": "5163a51e16772d273f8876ecb79a685bf8f7ffc5c4a685579846cfa2fd0e0fbb",
+    "src/inference_deploy/static/app.js": "27f8c4106ddc4f61b2cbf742267ccbf03d1f5c7ae01847821a592292f581104e",
+    "src/inference_deploy/static/index.html": "3e0f7f1fe4bd072b86d30cb71d15e86352f0e5f2c7392dec43db9d2064ebc497",
+    "src/inference_deploy/static/style.css": "b54f28df1e726ee674185ff9495ab17ea2d9d6bde23557d99bf4d2a95f0ddcb8",
+    "uv.lock": "c0a2d8972af535d8256487e26a26db2b74c5d0a19c4f9274f68dddc67b99982a"
+  },
+  "limits": [
+    "One real model/runtime build with context-setting upgrades on one Mac.",
+    "No different-checkpoint or runtime-version upgrade validation.",
+    "No per-block KV reclaim trace.",
+    "No statistical capacity test.",
+    "Text and JSON application assertions only."
+  ]
+}

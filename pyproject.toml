@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=69"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "inference-deploy"
+version = "0.1.0"
+description = "Qualify, apply and recover local inference deployments."
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = ["fastapi==0.162.2", "httpx==0.28.1", "uvicorn==0.54.0", "jsonschema>=4.23,<5"]
+
+[project.scripts]
+inference-deploy = "inference_deploy.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+inference_deploy = ["static/*"]
+
+[project.optional-dependencies]
+dev = ["pytest==9.2.0", "pytest-asyncio==1.4.1.post1", "ruff==0.17.4"]
+
+[tool.pytest.ini_options]
+asyncio_default_fixture_loop_scope = "function"
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+ignore = ["E501"]

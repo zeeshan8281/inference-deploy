@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="color-scheme" content="dark"><title>Inference Deploy</title><link rel="stylesheet" href="/static/style.css"><script src="/static/app.js" defer></script></head>
+<body>
+<div class="shell">
+<header><a class="brand" href="/"><span class="mark">↗</span>inference<span>deploy</span></a><div class="local"><i></i> Local control plane <small>v0.1</small></div></header>
+<main>
+<div class="heading"><div><p class="eyebrow">DEPLOYMENT WORKSPACE</p><h1>Your endpoint. Every change accounted for.</h1><p class="lead">Qualify a runtime, apply an approved profile, and recover the previous one.</p></div><button id="refresh-button" class="button secondary" data-testid="refresh-button">↻ Refresh</button></div>
+<div id="connection-alert" class="alert error" role="alert" hidden></div><div id="notice" class="alert" role="status" aria-live="polite" hidden></div>
+<section class="endpoint panel" aria-labelledby="endpoint-heading" data-testid="endpoint-card">
+<div class="row"><div><p class="eyebrow">STABLE API</p><h2 id="endpoint-heading"><code id="endpoint-url"></code><button id="copy-endpoint" class="icon-button" aria-label="Copy API URL">⧉</button></h2></div><span id="endpoint-state" class="pill neutral" data-testid="endpoint-state">Connecting</span></div>
+<div class="metrics">
+<div><span class="label">Active profile</span><strong id="active-name" data-testid="active-profile">—</strong><span id="active-id" class="detail">No runtime loaded</span></div>
+<div><span class="label">Previous profile</span><strong id="previous-name" data-testid="previous-profile">—</strong><span id="previous-id" class="detail">Available after an upgrade</span></div>
+<div><span class="label">Runtime process</span><strong id="runtime-pid" data-testid="runtime-pid">—</strong><span id="runtime-url" class="detail">Awaiting backend</span></div>
+<div><span class="label">In-flight requests</span><strong id="inflight" data-testid="inflight">—</strong><span class="detail">Pinned for the whole response</span></div>
+</div>
+<div class="operation-row"><span><i id="operation-indicator"></i><span id="phase" data-testid="operation-phase">Loading manager state…</span></span><button id="rollback-button" class="button danger" data-testid="rollback-button" disabled>Roll back</button></div>
+</section>
+<div class="maintenance-note">ⓘ <p><strong>One host, one active runtime.</strong> Qualification temporarily stops the active server. Applying or rolling back drains requests and uses a maintenance interval. The API returns 503 while unavailable.</p></div>
+<div class="workspace">
+<section class="panel" aria-labelledby="profiles-heading"><div class="section-heading"><div><p class="eyebrow">RUNTIME CONFIGURATION</p><h2 id="profiles-heading">Profiles <span id="profile-count" class="count">0</span></h2></div><button class="button primary" id="new-profile" data-testid="new-profile">+ New profile</button></div><div id="profiles-list" data-testid="profiles-list"></div><div id="profiles-empty" class="empty" hidden><div class="empty-mark">▤</div><h3>Start with a runtime profile</h3><p>Select a local llama-server binary and a GGUF model. The manager retains paths and artifact hashes in an immutable profile.</p><button id="empty-new-profile" class="button secondary">Create profile</button></div></section>
+<section class="panel" aria-labelledby="suites-heading"><div class="section-heading"><div><p class="eyebrow">APPLICATION CONTRACT</p><h2 id="suites-heading">Acceptance suites <span id="suite-count" class="count">0</span></h2></div><button class="button secondary" id="new-suite" data-testid="new-suite">+ New suite</button></div><div id="suites-list" data-testid="suites-list"></div><div id="suites-empty" class="empty" hidden><div class="empty-mark">✓</div><h3>Define what must keep working</h3><p>Add messages, expected text or JSON schema, and optional total-response latency limits.</p><button id="empty-new-suite" class="button secondary">Create suite</button></div><div class="suite-note"><span class="label">Release decision</span><p>Passed qualification is required for the exact profile and suite before apply. Missing evidence can remain inconclusive.</p></div></section>
+</div>
+<section class="panel history" aria-labelledby="history-heading"><div class="section-heading"><div><p class="eyebrow">PERSISTENT EVIDENCE</p><h2 id="history-heading">Operation history <span id="history-count" class="count">0</span></h2></div><span class="muted small">Includes rejected and interrupted attempts</span></div><div id="history-list" data-testid="history-list"></div><div id="history-empty" class="history-empty" hidden>No operations yet. Create a profile and suite, then run qualification.</div></section>
+<details class="raw"><summary>Inspect current manager state</summary><pre id="raw-state" data-testid="raw-state"></pre></details>
+<footer>Inference Deploy <span>Local runtime operations · OpenAI-compatible API</span></footer>
+</main>
+</div>
+
+<dialog id="profile-dialog" aria-labelledby="profile-dialog-heading"><form id="profile-form">
+<div class="dialog-heading"><div><p class="eyebrow">IMMUTABLE CONFIGURATION</p><h2 id="profile-dialog-heading">New runtime profile</h2></div><button type="button" class="icon-button close-dialog" data-dialog="profile-dialog" aria-label="Close profile dialog">×</button></div>
+<p class="intro">The binary, model, and arguments define this profile. Create a new profile for each change.</p>
+<div class="form-grid">
+<label class="full">Profile name<input id="profile-name" data-testid="profile-name" placeholder="Stable · Qwen · 2K context" required maxlength="120"></label>
+<label class="full">Runtime binary<input id="profile-runtime" data-testid="profile-runtime" placeholder="/opt/homebrew/bin/llama-server" required spellcheck="false"><span class="help">Absolute path to the executable on this host.</span></label>
+<label class="full">Model file<input id="profile-model" data-testid="profile-model" placeholder="/path/to/model.gguf" required spellcheck="false"></label>
+<label class="full">Runtime arguments <span class="optional">JSON array</span><textarea id="profile-args" data-testid="profile-args" rows="3" spellcheck="false">["--ctx-size","2048","--n-gpu-layers","99","--parallel","1"]</textarea><span class="help">Host, port, alias, metrics and slots are managed automatically.</span></label>
+<label>Startup timeout <span class="optional">seconds</span><input id="profile-startup-timeout" type="number" min="1" value="60" required></label>
+<label>Drain timeout <span class="optional">seconds</span><input id="profile-drain-timeout" type="number" min="1" value="15" required></label>
+</div><div id="profile-error" class="form-error" role="alert" hidden></div><div class="actions"><button type="button" class="button secondary close-dialog" data-dialog="profile-dialog">Cancel</button><button type="submit" id="save-profile" class="button primary" data-testid="save-profile">Save profile</button></div>
+</form></dialog>
+
+<dialog id="suite-dialog" aria-labelledby="suite-dialog-heading"><form id="suite-form">
+<div class="dialog-heading"><div><p class="eyebrow">APPLICATION CONTRACT</p><h2 id="suite-dialog-heading">New acceptance suite</h2></div><button type="button" class="icon-button close-dialog" data-dialog="suite-dialog" aria-label="Close suite dialog">×</button></div><p class="intro">Edit the template to match your application. Every declared expectation must pass.</p>
+<label>Suite definition <span class="optional">JSON</span><textarea id="suite-json" data-testid="suite-json" class="editor" rows="17" spellcheck="false" required></textarea></label><p class="help">Expectations support contains, equals, and JSON schema. Requests use greedy generation. Latency limits cover the complete response.</p>
+<div id="suite-error" class="form-error" role="alert" hidden></div><div class="actions"><button type="button" class="button secondary close-dialog" data-dialog="suite-dialog">Cancel</button><button type="submit" id="save-suite" class="button primary" data-testid="save-suite">Save suite</button></div>
+</form></dialog>
+
+<dialog id="confirm-dialog" aria-labelledby="confirm-heading"><form id="confirm-form"><div class="dialog-heading"><div><p class="eyebrow">MAINTENANCE OPERATION</p><h2 id="confirm-heading">Confirm change</h2></div><button type="button" class="icon-button close-dialog" data-dialog="confirm-dialog" aria-label="Close confirmation">×</button></div><p id="confirm-description" class="confirm-description"></p><div class="warning">New requests can receive 503 during staging and the runtime transition. Existing requests drain before the active server stops.</div><div class="actions"><button type="button" class="button secondary close-dialog" data-dialog="confirm-dialog">Cancel</button><button type="submit" id="confirm-action" class="button primary" data-testid="confirm-action">Continue</button></div></form></dialog>
+</body></html>

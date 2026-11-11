@@ -1,0 +1,354 @@
+[
+  {
+    "phase": "preflight",
+    "expected_profile_id": "0ce70f1b5d5368038a2853e2d434ee8ae00c98adf7d7276f17be7398496a600a",
+    "actual_profile_id": "0ce70f1b5d5368038a2853e2d434ee8ae00c98adf7d7276f17be7398496a600a",
+    "phase_after_restart": "ready",
+    "runtime_pid": 74155,
+    "inference": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "READY"
+          }
+        }
+      ],
+      "created": 1794380629,
+      "model": "idp-6a17d031d64942ed82225f6bc0724c15-f59c3e3aed65425da498c98dc62a85b3",
+      "system_fingerprint": "b11669-620d2225c",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 2,
+        "prompt_tokens": 37,
+        "total_tokens": 39,
+        "prompt_tokens_details": {
+          "cached_tokens": 36
+        }
+      },
+      "id": "chatcmpl-ExGjrEvhLCOep0rvQAwFWzLJhAtdAySi",
+      "timings": {
+        "cache_n": 36,
+        "prompt_n": 1,
+        "prompt_ms": 7.03,
+        "prompt_per_token_ms": 7.03,
+        "prompt_per_second": 142.2475106685633,
+        "predicted_n": 2,
+        "predicted_ms": 6.631,
+        "predicted_per_token_ms": 6.631,
+        "predicted_per_second": 150.80681646810436
+      }
+    },
+    "passed": true
+  },
+  {
+    "phase": "draining",
+    "expected_profile_id": "0ce70f1b5d5368038a2853e2d434ee8ae00c98adf7d7276f17be7398496a600a",
+    "actual_profile_id": "0ce70f1b5d5368038a2853e2d434ee8ae00c98adf7d7276f17be7398496a600a",
+    "phase_after_restart": "ready",
+    "runtime_pid": 74218,
+    "inference": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "READY"
+          }
+        }
+      ],
+      "created": 1794380633,
+      "model": "idp-6a17d031d64942ed82225f6bc0724c15-454448384b8f4abc86856e3e6b159f33",
+      "system_fingerprint": "b11669-620d2225c",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 2,
+        "prompt_tokens": 37,
+        "total_tokens": 39,
+        "prompt_tokens_details": {
+          "cached_tokens": 36
+        }
+      },
+      "id": "chatcmpl-APdFsxYp3MLfwbvvDsMwIvX6tuRlDDoN",
+      "timings": {
+        "cache_n": 36,
+        "prompt_n": 1,
+        "prompt_ms": 6.785,
+        "prompt_per_token_ms": 6.785,
+        "prompt_per_second": 147.38393515106853,
+        "predicted_n": 2,
+        "predicted_ms": 6.546,
+        "predicted_per_token_ms": 6.546,
+        "predicted_per_second": 152.76504735716466
+      }
+    },
+    "passed": true
+  },
+  {
+    "phase": "stopping_active",
+    "expected_profile_id": "0ce70f1b5d5368038a2853e2d434ee8ae00c98adf7d7276f17be7398496a600a",
+    "actual_profile_id": "0ce70f1b5d5368038a2853e2d434ee8ae00c98adf7d7276f17be7398496a600a",
+    "phase_after_restart": "ready",
+    "runtime_pid": 74270,
+    "inference": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "READY"
+          }
+        }
+      ],
+      "created": 1794380638,
+      "model": "idp-6a17d031d64942ed82225f6bc0724c15-c2b38c095e3041d2a4fe9b098b702f9d",
+      "system_fingerprint": "b11669-620d2225c",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 2,
+        "prompt_tokens": 37,
+        "total_tokens": 39,
+        "prompt_tokens_details": {
+          "cached_tokens": 36
+        }
+      },
+      "id": "chatcmpl-IHx1EK4E5jYpgqFl3GX72ZNXzkvF4n8m",
+      "timings": {
+        "cache_n": 36,
+        "prompt_n": 1,
+        "prompt_ms": 6.56,
+        "prompt_per_token_ms": 6.56,
+        "prompt_per_second": 152.4390243902439,
+        "predicted_n": 2,
+        "predicted_ms": 6.384,
+        "predicted_per_token_ms": 6.384,
+        "predicted_per_second": 156.64160401002505
+      }
+    },
+    "passed": true
+  },
+  {
+    "phase": "starting_candidate",
+    "expected_profile_id": "0ce70f1b5d5368038a2853e2d434ee8ae00c98adf7d7276f17be7398496a600a",
+    "actual_profile_id": "0ce70f1b5d5368038a2853e2d434ee8ae00c98adf7d7276f17be7398496a600a",
+    "phase_after_restart": "ready",
+    "runtime_pid": 74334,
+    "inference": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "READY"
+          }
+        }
+      ],
+      "created": 1794380643,
+      "model": "idp-6a17d031d64942ed82225f6bc0724c15-8bd37ff164ca442eb7ac64b8e2f0bf3a",
+      "system_fingerprint": "b11669-620d2225c",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 2,
+        "prompt_tokens": 37,
+        "total_tokens": 39,
+        "prompt_tokens_details": {
+          "cached_tokens": 36
+        }
+      },
+      "id": "chatcmpl-Z4MGJkiCXMT9Ey1zfY6yGRheElbplEaP",
+      "timings": {
+        "cache_n": 36,
+        "prompt_n": 1,
+        "prompt_ms": 6.644,
+        "prompt_per_token_ms": 6.644,
+        "prompt_per_second": 150.51173991571343,
+        "predicted_n": 2,
+        "predicted_ms": 6.368,
+        "predicted_per_token_ms": 6.368,
+        "predicted_per_second": 157.03517587939697
+      }
+    },
+    "passed": true
+  },
+  {
+    "phase": "after_spawn",
+    "expected_profile_id": "0ce70f1b5d5368038a2853e2d434ee8ae00c98adf7d7276f17be7398496a600a",
+    "actual_profile_id": "0ce70f1b5d5368038a2853e2d434ee8ae00c98adf7d7276f17be7398496a600a",
+    "phase_after_restart": "ready",
+    "runtime_pid": 74407,
+    "inference": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "READY"
+          }
+        }
+      ],
+      "created": 1794380648,
+      "model": "idp-6a17d031d64942ed82225f6bc0724c15-a2bf7101a7234cdeb814a5ea3fa879b3",
+      "system_fingerprint": "b11669-620d2225c",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 2,
+        "prompt_tokens": 37,
+        "total_tokens": 39,
+        "prompt_tokens_details": {
+          "cached_tokens": 36
+        }
+      },
+      "id": "chatcmpl-Ew1QwoB9ex74zw5bZYurqP9MLulmP7B5",
+      "timings": {
+        "cache_n": 36,
+        "prompt_n": 1,
+        "prompt_ms": 20.948,
+        "prompt_per_token_ms": 20.948,
+        "prompt_per_second": 47.73725415314111,
+        "predicted_n": 2,
+        "predicted_ms": 9.431,
+        "predicted_per_token_ms": 9.431,
+        "predicted_per_second": 106.03329445445871
+      }
+    },
+    "passed": true
+  },
+  {
+    "phase": "postcheck",
+    "expected_profile_id": "0ce70f1b5d5368038a2853e2d434ee8ae00c98adf7d7276f17be7398496a600a",
+    "actual_profile_id": "0ce70f1b5d5368038a2853e2d434ee8ae00c98adf7d7276f17be7398496a600a",
+    "phase_after_restart": "ready",
+    "runtime_pid": 74500,
+    "inference": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "READY"
+          }
+        }
+      ],
+      "created": 1794380654,
+      "model": "idp-6a17d031d64942ed82225f6bc0724c15-a487cb6d99e943c0b5672cb9b4e85815",
+      "system_fingerprint": "b11669-620d2225c",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 2,
+        "prompt_tokens": 37,
+        "total_tokens": 39,
+        "prompt_tokens_details": {
+          "cached_tokens": 36
+        }
+      },
+      "id": "chatcmpl-OVp6gpvUqnd2s7PtiNGVZgnBLN7xAR2h",
+      "timings": {
+        "cache_n": 36,
+        "prompt_n": 1,
+        "prompt_ms": 17.084,
+        "prompt_per_token_ms": 17.084,
+        "prompt_per_second": 58.534301100444864,
+        "predicted_n": 2,
+        "predicted_ms": 9.477,
+        "predicted_per_token_ms": 9.477,
+        "predicted_per_second": 105.51862403714256
+      }
+    },
+    "passed": true
+  },
+  {
+    "phase": "committing",
+    "expected_profile_id": "0ce70f1b5d5368038a2853e2d434ee8ae00c98adf7d7276f17be7398496a600a",
+    "actual_profile_id": "0ce70f1b5d5368038a2853e2d434ee8ae00c98adf7d7276f17be7398496a600a",
+    "phase_after_restart": "ready",
+    "runtime_pid": 74582,
+    "inference": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "READY"
+          }
+        }
+      ],
+      "created": 1794380661,
+      "model": "idp-6a17d031d64942ed82225f6bc0724c15-457443eaab804078abe533981a4a97e3",
+      "system_fingerprint": "b11669-620d2225c",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 2,
+        "prompt_tokens": 37,
+        "total_tokens": 39,
+        "prompt_tokens_details": {
+          "cached_tokens": 36
+        }
+      },
+      "id": "chatcmpl-IAeIrh1AfSJXxSbNucrb547OeDqguiKA",
+      "timings": {
+        "cache_n": 36,
+        "prompt_n": 1,
+        "prompt_ms": 13.99,
+        "prompt_per_token_ms": 13.99,
+        "prompt_per_second": 71.4796283059328,
+        "predicted_n": 2,
+        "predicted_ms": 9.657,
+        "predicted_per_token_ms": 9.657,
+        "predicted_per_second": 103.55182768975872
+      }
+    },
+    "passed": true
+  },
+  {
+    "phase": "after_commit",
+    "expected_profile_id": "06dace6786eafb2a6f456ded5cf693b35a766f309d03dcf947e794f8fc815cab",
+    "actual_profile_id": "06dace6786eafb2a6f456ded5cf693b35a766f309d03dcf947e794f8fc815cab",
+    "phase_after_restart": "ready",
+    "runtime_pid": 74673,
+    "inference": {
+      "choices": [
+        {
+          "finish_reason": "stop",
+          "index": 0,
+          "message": {
+            "role": "assistant",
+            "content": "READY"
+          }
+        }
+      ],
+      "created": 1794380667,
+      "model": "idp-6a17d031d64942ed82225f6bc0724c15-66107dc0f1e2421084575cd09eee7d6f",
+      "system_fingerprint": "b11669-620d2225c",
+      "object": "chat.completion",
+      "usage": {
+        "completion_tokens": 2,
+        "prompt_tokens": 37,
+        "total_tokens": 39,
+        "prompt_tokens_details": {
+          "cached_tokens": 36
+        }
+      },
+      "id": "chatcmpl-Ynjuvaxt6X8xFuTMs0KR7rCrrlMUhruU",
+      "timings": {
+        "cache_n": 36,
+        "prompt_n": 1,
+        "prompt_ms": 7.363,
+        "prompt_per_token_ms": 7.363,
+        "prompt_per_second": 135.81420616596495,
+        "predicted_n": 2,
+        "predicted_ms": 7.232,
+        "predicted_per_token_ms": 7.232,
+        "predicted_per_second": 138.27433628318585
+      }
+    },
+    "passed": true
+  }
+]
